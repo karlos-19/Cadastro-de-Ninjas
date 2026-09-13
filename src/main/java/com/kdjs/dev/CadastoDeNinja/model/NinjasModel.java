@@ -1,16 +1,18 @@
 package com.kdjs.dev.CadastoDeNinja.model;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 
 // Entity transforma uma classe em entidade do banco de dados
 @Entity
 @Table(name = "tb_cadastro")
-public class NinjaModel {
+public class NinjasModel {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private long id;
 
     private String nome;
     private String email;
@@ -18,11 +20,12 @@ public class NinjaModel {
     private String rank;
     private String tecnicas;
     private int idade;
+    private List<MissoesModel> missoes;
 
-    public NinjaModel() {
+    public NinjasModel() {
     }
 
-    public NinjaModel(String nome, String cla, String rank, String tecnicas, int idade, String email) {
+    public NinjasModel(String nome, String cla, String rank, String tecnicas, int idade, String email) {
         this.nome = nome;
         this.cla = cla;
         this.rank = rank;
@@ -31,6 +34,14 @@ public class NinjaModel {
         this.email = email;
     }
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

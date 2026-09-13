@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_missao")
-public class MissaoModel {
+public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     private String titulo;
     private String descricao;
@@ -19,10 +19,10 @@ public class MissaoModel {
     private String ninjaResponsavel;
     private String solicitante;
 
-    public MissaoModel(){
+    public MissoesModel(){
     }
 
-    public MissaoModel(long id, String titulo, String descricao, String rank, String status, String recompensa, String prazo, String ninjaResponsavel, String solicitante) {
+    public MissoesModel(long id, String titulo, String descricao, String rank, String status, String recompensa, String prazo, String ninjaResponsavel, String solicitante) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
