@@ -1,4 +1,5 @@
 package com.kdjs.dev.CadastoDeNinja.model;
+
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,7 +21,13 @@ public class NinjasModel {
     private String rank;
     private String tecnicas;
     private int idade;
-    private List<MissoesModel> missoes;
+
+
+    //@ManyToOne - um ninja tem uma unica missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
+    private MissoesModel missao;
+
 
     public NinjasModel() {
     }
@@ -83,11 +90,21 @@ public class NinjasModel {
         this.idade = idade;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
     public String setEmail(String email) {
         return this.email = email;
     }
+
+
+    public MissoesModel getMissao() {
+        return missao;
+    }
+
+    public void setMissao(MissoesModel missao) {
+        this.missao = missao;
+    }
+
 }

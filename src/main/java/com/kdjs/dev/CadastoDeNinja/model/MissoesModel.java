@@ -2,8 +2,10 @@ package com.kdjs.dev.CadastoDeNinja.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "tb_missao")
+@Table(name = "tb_missoes")
 public class MissoesModel {
 
     @Id
@@ -18,6 +20,12 @@ public class MissoesModel {
     private String prazo;
     private String ninjaResponsavel;
     private String solicitante;
+
+    //@OneToMany - uma missão para vários ninjas
+    @OneToMany(mappedBy = "missoes")
+    private List<NinjasModel> ninjas;
+
+
 
     public MissoesModel(){
     }
@@ -104,5 +112,13 @@ public class MissoesModel {
 
     public void setSolicitante(String solicitante) {
         this.solicitante = solicitante;
+    }
+
+    public List<NinjasModel> getNinjas() {
+        return ninjas;
+    }
+
+    public void setNinjas(List<NinjasModel> ninjas) {
+        this.ninjas = ninjas;
     }
 }
