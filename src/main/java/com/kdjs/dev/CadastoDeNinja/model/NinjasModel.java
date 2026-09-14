@@ -1,13 +1,15 @@
 package com.kdjs.dev.CadastoDeNinja.model;
 
 import jakarta.persistence.*;
-
-import java.util.List;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 // Entity transforma uma classe em entidade do banco de dados
 @Entity
 @Table(name = "tb_cadastro")
+@Data
+@NoArgsConstructor
 public class NinjasModel {
 
 
@@ -22,89 +24,8 @@ public class NinjasModel {
     private String tecnicas;
     private int idade;
 
-
     //@ManyToOne - um ninja tem uma unica missão
     @ManyToOne
     @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
     private MissoesModel missao;
-
-
-    public NinjasModel() {
-    }
-
-    public NinjasModel(String nome, String cla, String rank, String tecnicas, int idade, String email) {
-        this.nome = nome;
-        this.cla = cla;
-        this.rank = rank;
-        this.tecnicas = tecnicas;
-        this.idade = idade;
-        this.email = email;
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCla() {
-        return cla;
-    }
-
-    public void setCla(String cla) {
-        this.cla = cla;
-    }
-
-    public String getRank() {
-        return rank;
-    }
-
-    public void setRank(String rank) {
-        this.rank = rank;
-    }
-
-    public String getTecnicas() {
-        return tecnicas;
-    }
-
-    public void setTecnicas(String tecnicas) {
-        this.tecnicas = tecnicas;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String setEmail(String email) {
-        return this.email = email;
-    }
-
-
-    public MissoesModel getMissao() {
-        return missao;
-    }
-
-    public void setMissao(MissoesModel missao) {
-        this.missao = missao;
-    }
-
 }
